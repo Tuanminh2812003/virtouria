@@ -13,7 +13,7 @@ function LayoutDefault(){
                             <Link to="/" className="layoutDefault__header__logo">
                                 <img src="/logo.png" alt="Logo" />
                                 <div className="layoutDefault__header__logo__text">
-                                    VIRTUORIA
+                                    VIRTOURIA
                                 </div>
                             </Link>
                             <div className="layoutDefault__header__menu">
@@ -119,7 +119,7 @@ function LayoutDefault(){
                                         <div className="layoutDefault__footer__bottom__inner__top__logo">
                                             <img src="/logo.png" />
                                             <div className="layoutDefault__footer__bottom__inner__top__logo__text">
-                                                VIRTUORIA
+                                                VIRTOURIA
                                             </div>
                                         </div>
                                     </div>
