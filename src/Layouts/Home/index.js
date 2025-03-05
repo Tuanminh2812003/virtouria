@@ -8,10 +8,14 @@ import { FaStar } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { IoChatbubbleOutline } from "react-icons/io5";
 import FestivalCard from "../../Components/FestivalCard";
+import { useState, useEffect, useContext } from "react";
+import { LanguageContext } from "../../context/LanguageContext";
 
 function Home() {
 
-    const festivals = [
+    const { language, changeLanguage } = useContext(LanguageContext);
+
+    const festivalsVN = [
         { image: "/Tour/t1.png", title: "Làng Hương Quảng Phú Cầu, Việt Nam", description: "Nơi lưu giữ nghệ thuật làm hương truyền thống hàng trăm năm, không chỉ mang hương thơm đặc trưng mà còn tạo nên những khung cảnh rực rỡ đầy màu sắc..." },
         { image: "/Tour/t2.png", title: "Làng Gốm Bát Tràng, Việt Nam", description: "Một làng nghề truyền thống hơn 700 năm, nổi tiếng với các sản phẩm gốm tinh xảo, bền đẹp.", tall: true },
         { image: "/Tour/t3.png", title: "Lễ Hội Khinh Khí Cầu, Đài Loan", description: "Hàng trăm khinh khí cầu bay lơ lửng trên bầu trời tạo nên cảnh tượng tuyệt đẹp." },
@@ -20,6 +24,17 @@ function Home() {
         { image: "/Tour/t7.png", title: "Lễ Hội Đua Vịt Cao Su, Đức", description: "Hàng ngàn con vịt cao su được thả xuống dòng sông trong cuộc đua vui nhộn.", tall: true },
         { image: "/Tour/t6.png", title: "Lễ Hội Thả Đèn Trời, Đài Loan", description: "Một lễ hội truyền thống hàng trăm năm tại làng Thập Phần." },
         { image: "/Tour/t8.png", title: "Lễ Hội Bia Munich, Đức", description: "Sự kiện bia lớn nhất thế giới với hơn 6 triệu người tham gia mỗi năm." }
+    ];
+
+    const festivalsEN = [
+        { image: "/Tour/t1.png", title: "Quang Phu Cau Incense Village, Vietnam", description: "A place that preserves the centuries-old art of making incense, not only carrying its distinctive fragrance but also creating vibrant and colorful scenes." },
+        { image: "/Tour/t2.png", title: "Bat Trang Pottery Village, Vietnam", description: "A traditional craft village with over 700 years of history, famous for its exquisite and durable ceramic products.", tall: true },
+        { image: "/Tour/t3.png", title: "Hot Air Balloon Festival, Taiwan", description: "Hundreds of hot air balloons floating in the sky create a breathtaking spectacle." },
+        { image: "/Tour/t4.png", title: "Elephant Racing Festival, Vietnam", description: "A traditional event of the M’Nong people, honoring the strength of Central Highland elephants.", tall: true },
+        { image: "/Tour/t5.png", title: "Carnival Festival, Germany", description: "The largest carnival in Europe, featuring unique and fun costumes.", tall: true },
+        { image: "/Tour/t7.png", title: "Rubber Duck Race Festival, Germany", description: "Thousands of rubber ducks are released into the river in a fun-filled race.", tall: true },
+        { image: "/Tour/t6.png", title: "Sky Lantern Festival, Taiwan", description: "A centuries-old traditional festival in Shifen Village, where thousands of lanterns light up the night sky." },
+        { image: "/Tour/t8.png", title: "Munich Beer Festival, Germany", description: "The world's largest beer festival, attracting over 6 million participants each year." }
     ];
 
     return (
@@ -31,13 +46,13 @@ function Home() {
                     <div className="container-main">
                         <div className="home__section1__inner">
                             <div className="home__section1__inner__disc">
-                                KHÁM PHÁ NĂM CHÂU
+                                {language === "EN" ? "EXPLORE FIVE CONTAINERS" : "KHÁM PHÁ NĂM CHÂU"}
                             </div>
                             <div className="home__section1__inner__title">
-                                TINH HOA VĂN HÓA
+                                {language === "EN" ? "CULTURAL ESSENCE" : "TINH HOA VĂN HÓA"}
                             </div>
                             <div className="home__section1__inner__text">
-                                Trải nghiệm những sản phẩm văn hóa 3D một cách tỉ mỉ trước khi trực tiếp sáng tạo khi tham gia các tour du lịch độc nhất vô nhị của Virtouria!
+                                {language === "EN" ? "Experience meticulously detailed 3D cultural products before creating them yourself when participating in Virtouria's unique tours!" : "Trải nghiệm những sản phẩm văn hóa 3D một cách tỉ mỉ trước khi trực tiếp sáng tạo khi tham gia các tour du lịch độc nhất vô nhị của Virtouria!"}
                             </div>
                             <div className="home__section1__inner__button">
                                 <div className="home__section1__inner__button__back">
@@ -49,7 +64,7 @@ function Home() {
                                         <GoArrowUpLeft />
                                         </div>
                                         <div className="home__section1__inner__button__inner__text">
-                                            Tours Lễ Hội
+                                            {language === "EN" ? "Festival Tours" : "Tours Lễ Hội"}
                                         </div>
                                     </a>
                                     <a href="/">
@@ -57,7 +72,7 @@ function Home() {
                                         <GoArrowUpLeft />
                                         </div>
                                         <div className="home__section1__inner__button__inner__text">
-                                            Trải Nghiệm 3D
+                                            {language === "EN" ? "Play 3D Game" : "Trải Nghiệm 3D"}
                                         </div>
                                     </a>
                                     <a href="/">
@@ -65,14 +80,25 @@ function Home() {
                                         <GoArrowUpLeft />
                                         </div>
                                         <div className="home__section1__inner__button__inner__text">
-                                            Review Trải Nghiệm
+                                            {language === "EN" ? "Reviews" : "Review Trải Nghiệm"}
                                         </div>
                                     </a>
                                     <div className="home__section1__inner__button__inner__input">
-                                        <input type="text" placeholder="Tìm kiếm mọi thứ"/>
-                                        <div className="home__section1__inner__button__inner__input__icon">
-                                            <IoIosSearch />
-                                        </div>
+                                        {language === "EN" ? (
+                                            <>
+                                                <input type="text" placeholder="Finding everything"/>
+                                                <div className="home__section1__inner__button__inner__input__icon">
+                                                    <IoIosSearch />
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <input type="text" placeholder="Tìm kiếm mọi thứ"/>
+                                                <div className="home__section1__inner__button__inner__input__icon">
+                                                    <IoIosSearch />
+                                                </div>
+                                            </>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -84,15 +110,20 @@ function Home() {
                     <div className="container-main">
                         <div className="home__section2__inner">
                             <div className="home__section2__inner__title">
-                                MUÔN VÀN LỄ HỘI
+                                {language === "EN" ? "Countless Festivals" : "MUÔN VÀN LỄ HỘI"}
                             </div>
                             <div className="home__section2__inner__disc">
-                                Hòa mình vào không khí sôi động để trải nghiệm những lễ hội độc nhất vô nhị mang đậm bản sắc địa phương tại từng nơi bạn ghé qua!
+                                {language === "EN" ? "Immerse yourself in the vibrant atmosphere and experience unique festivals that showcase the rich local culture at every destination you visit!" : "Hòa mình vào không khí sôi động để trải nghiệm những lễ hội độc nhất vô nhị mang đậm bản sắc địa phương tại từng nơi bạn ghé qua!"}
                             </div>
                             <div className="festival-grid">
-                                {festivals.map((festival, index) => (
-                                <FestivalCard key={index} {...festival} />
-                                ))}
+                                {language === "EN"
+                                    ? festivalsEN.map((festival, index) => (
+                                        <FestivalCard key={index} {...festival} />
+                                    ))
+                                    : festivalsVN.map((festival, index) => (
+                                        <FestivalCard key={index} {...festival} />
+                                    ))
+                                }
                             </div>
                         </div>
                     </div>
@@ -101,10 +132,11 @@ function Home() {
                     <div className="container-main">
                         <div className="home__section4__inner">
                             <div className="home__section4__inner__title">
-                                HÃY ĐỂ NHỮNG CHUYÊN GIA CHO BẠN LỜI KHUYÊN BỔ ÍCH!
+                                {language === "EN" ? "LET THE EXPERTS GIVE YOU VALUABLE ADVICE!" : "HÃY ĐỂ NHỮNG CHUYÊN GIA CHO BẠN LỜI KHUYÊN BỔ ÍCH!"}
                             </div>
                             <div className="home__section4__inner__disc">
-                                Những đánh giá của những chuyên gia về du lịch sẽ giúp ích rất nhiều cho chuyến hành trình của bạn và đừng quên đặt câu hỏi và đánh giá để sớm trở thành chuyên gia nhé!
+                                {language === "EN" ? "Travel experts' reviews will greatly enhance your journey. Don't forget to ask questions and leave reviews to become an expert yourself!" : "Những đánh giá của những chuyên gia về du lịch sẽ giúp ích rất nhiều cho chuyến hành trình của bạn và đừng quên đặt câu hỏi và đánh giá để sớm trở thành chuyên gia nhé!"}
+                                
                             </div>
                             <div className="home__section4__inner__content">
                                 <div className="home__section4__inner__content__item">
@@ -183,7 +215,7 @@ function Home() {
                                             </div>
                                             <div className="home__section4__inner__content__item__comment__mid__button">
                                                 <div className="home__section4__inner__content__item__comment__mid__button__text">
-                                                        Xem thêm
+                                                    {language === "EN" ? "See more" : "Xem thêm"}
                                                 </div>
                                                 <div className="home__section4__inner__content__item__comment__mid__button__icon">
                                                     <GoArrowUpRight />
@@ -230,7 +262,7 @@ function Home() {
                                             </div>
                                             <div className="home__section4__inner__content__item__comment__mid__button">
                                                 <div className="home__section4__inner__content__item__comment__mid__button__text">
-                                                        Xem thêm
+                                                        {language === "EN" ? "See more" : "Xem thêm"}
                                                 </div>
                                                 <div className="home__section4__inner__content__item__comment__mid__button__icon">
                                                     <GoArrowUpRight />
@@ -318,7 +350,7 @@ function Home() {
                                             </div>
                                             <div className="home__section4__inner__content__item__comment__mid__button">
                                                 <div className="home__section4__inner__content__item__comment__mid__button__text">
-                                                        Xem thêm
+                                                        {language === "EN" ? "See more" : "Xem thêm"}
                                                 </div>
                                                 <div className="home__section4__inner__content__item__comment__mid__button__icon">
                                                     <GoArrowUpRight />
@@ -365,7 +397,7 @@ function Home() {
                                             </div>
                                             <div className="home__section4__inner__content__item__comment__mid__button">
                                                 <div className="home__section4__inner__content__item__comment__mid__button__text">
-                                                        Xem thêm
+                                                        {language === "EN" ? "See more" : "Xem thêm"}
                                                 </div>
                                                 <div className="home__section4__inner__content__item__comment__mid__button__icon">
                                                     <GoArrowUpRight />
@@ -453,7 +485,7 @@ function Home() {
                                             </div>
                                             <div className="home__section4__inner__content__item__comment__mid__button">
                                                 <div className="home__section4__inner__content__item__comment__mid__button__text">
-                                                        Xem thêm
+                                                        {language === "EN" ? "See more" : "Xem thêm"}
                                                 </div>
                                                 <div className="home__section4__inner__content__item__comment__mid__button__icon">
                                                     <GoArrowUpRight />
@@ -500,7 +532,7 @@ function Home() {
                                             </div>
                                             <div className="home__section4__inner__content__item__comment__mid__button">
                                                 <div className="home__section4__inner__content__item__comment__mid__button__text">
-                                                        Xem thêm
+                                                        {language === "EN" ? "See more" : "Xem thêm"}
                                                 </div>
                                                 <div className="home__section4__inner__content__item__comment__mid__button__icon">
                                                     <GoArrowUpRight />
