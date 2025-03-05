@@ -26,21 +26,21 @@ function LayoutDefault(){
 
                                     {language === "EN" ? (
                                         <>
-                                            <a href="/">
+                                            <Link to="/">
                                                 <div className="layoutDefault__header__menu__back">
                                                 </div>
                                                 <div className="layoutDefault__header__menu__text">
                                                     Home
                                                 </div>
-                                            </a>
-                                            <a href="/">
+                                            </Link>
+                                            <a href="#home__section2">
                                                 <div className="layoutDefault__header__menu__back">
                                                 </div>
                                                 <div className="layoutDefault__header__menu__text">
                                                     Tours
                                                 </div>
                                             </a>
-                                            <a href="/">
+                                            <a href="#home__section3">
                                                 <div className="layoutDefault__header__menu__back">
                                                 </div>
                                                 <div className="layoutDefault__header__menu__text">
@@ -107,8 +107,8 @@ function LayoutDefault(){
                             </div>
                             <div className="layoutDefault__header__right">
                                 <select className="layoutDefault__header__language" onChange={(e) => changeLanguage(e.target.value)} value={language}>
+                                    <option value="EN">EN</option>  
                                     <option value="VN">VN</option>
-                                    <option value="EN">EN</option>
                                 </select>
                                 <div className="layoutDefault__header__login">
                                     <div className="layoutDefault__header__login__text">

@@ -1,7 +1,12 @@
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
+import { useState, useEffect, useContext } from "react";
+import { LanguageContext } from "../../context/LanguageContext";
 
 const FestivalCard = ({ image, title, description, tall }) => {
+
+  const { language, changeLanguage } = useContext(LanguageContext);
+
   return (
     <div className={`festival-card ${tall ? "tall" : ""}`} style={{ backgroundImage: `url(${image})` }}>
       <div className="festival-overlay"></div>
@@ -16,8 +21,12 @@ const FestivalCard = ({ image, title, description, tall }) => {
       </div>
       <div className="festival-buttons">
         <div className="festival-buttons__back"></div>
-        <div className="btn-3d">Trải nghiệm 3D</div>
-        <div className="btn-tour">Đặt Tour</div>
+        <div className="btn-3d">
+          {language === "EN" ? "Virtual explore" : "Trải nghiệm 3D"}
+        </div>
+        <div className="btn-tour">
+          {language === "EN" ? "Book tour" : "Đặt Tour"}
+        </div>
       </div>
     </div>
   );

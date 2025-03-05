@@ -106,7 +106,7 @@ function Home() {
                     </div>
                     <img src="/VIRTOURIA.png" className="home__section1__virt"/>
                 </div>
-                <div className="home__section2">
+                <div className="home__section2" id="home__section2">
                     <div className="container-main">
                         <div className="home__section2__inner">
                             <div className="home__section2__inner__title">
