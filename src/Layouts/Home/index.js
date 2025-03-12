@@ -67,7 +67,7 @@ function Home() {
                                             {language === "EN" ? "Festival Tours" : "Tours Lễ Hội"}
                                         </div>
                                     </a>
-                                    <a href="/">
+                                    <a href="/game">
                                         <div className="home__section1__inner__button__inner__icon">
                                         <GoArrowUpLeft />
                                         </div>
@@ -185,7 +185,7 @@ function Home() {
 
                                             </div>
                                             <div className="home__section4__inner__content__item__comment__up__title">
-                                                Làng Hương Quảng Phú Cầu, Việt Nam
+                                                {language === "EN" ? "Quang Phu Cau Incense Village" : "Làng Hương Quảng Phú Cầu, Việt Nam"}
                                             </div>
                                         </div>
                                         <div className="home__section4__inner__content__item__comment__mid">
@@ -232,7 +232,7 @@ function Home() {
                                                 
                                             </div>
                                             <div className="home__section4__inner__content__item__comment__up__title">
-                                                Lễ Hội Biaa Munich, Đức
+                                                {language === "EN" ? "Munich Beer Festival" : "Lễ Hội Bia Munich, Đức"}
                                             </div>
                                         </div>
                                         <div className="home__section4__inner__content__item__comment__mid">
@@ -320,7 +320,7 @@ function Home() {
 
                                             </div>
                                             <div className="home__section4__inner__content__item__comment__up__title">
-                                                Lễ Hội Thả Đèn Trời, Đài Loan
+                                                {language === "EN" ? "Sky Lantern Festival, Taiwan" : "Lễ Hội Thả Đèn Trời, Đài Loan"}
                                             </div>
                                         </div>
                                         <div className="home__section4__inner__content__item__comment__mid">
@@ -367,7 +367,7 @@ function Home() {
                                                 
                                             </div>
                                             <div className="home__section4__inner__content__item__comment__up__title">
-                                                Lễ Hội Đua Voi Đăk Lăk, Việt Nam
+                                                {language === "EN" ? "Elephant Racing Festival, Vietnam" : "Lễ Hội Đua Voi, Việt Nam"}
                                             </div>
                                         </div>
                                         <div className="home__section4__inner__content__item__comment__mid">
@@ -455,7 +455,7 @@ function Home() {
 
                                             </div>
                                             <div className="home__section4__inner__content__item__comment__up__title">
-                                                Làng Gốm Bát Tràng, Việt Nam
+                                                {language === "EN" ? "Bat Trang Pottery Village, Vietnam" : "Làng Gốm Bát Tràng, Việt Nam"}
                                             </div>
                                         </div>
                                         <div className="home__section4__inner__content__item__comment__mid">
@@ -502,7 +502,7 @@ function Home() {
                                                 
                                             </div>
                                             <div className="home__section4__inner__content__item__comment__up__title">
-                                                Lễ Hội Đua Voi Đăk Lăk, Việt Nam
+                                                {language === "EN" ? "Elephant Racing Festival, Vietnam" : "Lễ Hội Đua Voi, Việt Nam"}
                                             </div>
                                         </div>
                                         <div className="home__section4__inner__content__item__comment__mid">

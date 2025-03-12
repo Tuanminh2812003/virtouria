@@ -2,6 +2,7 @@ import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import { useState, useEffect, useContext } from "react";
 import { LanguageContext } from "../../context/LanguageContext";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 const FestivalCard = ({ image, title, description, tall }) => {
 
@@ -21,9 +22,9 @@ const FestivalCard = ({ image, title, description, tall }) => {
       </div>
       <div className="festival-buttons">
         <div className="festival-buttons__back"></div>
-        <div className="btn-3d">
+        <Link to="/game" className="btn-3d">
           {language === "EN" ? "Virtual explore" : "Trải nghiệm 3D"}
-        </div>
+        </Link>
         <div className="btn-tour">
           {language === "EN" ? "Book tour" : "Đặt Tour"}
         </div>

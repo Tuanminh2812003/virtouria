@@ -47,14 +47,14 @@ function LayoutDefault(){
                                                     3D Products
                                                 </div>
                                             </a>
-                                            <a href="/">
+                                            <a href="/game">
                                                 <div className="layoutDefault__header__menu__back">
                                                 </div>
                                                 <div className="layoutDefault__header__menu__text">
                                                     Travel Game
                                                 </div>
                                             </a>
-                                            <Link to="/login">
+                                            <Link to="https://virtual-gallery-main.vercel.app/virtouria/">
                                                 <div className="layoutDefault__header__menu__back">
                                                 </div>
                                                 <div className="layoutDefault__header__menu__text">
@@ -85,18 +85,18 @@ function LayoutDefault(){
                                                     Sản Phẩm 3D
                                                 </div>
                                             </a>
-                                            <a href="/">
+                                            <a href="/game">
                                                 <div className="layoutDefault__header__menu__back">
                                                 </div>
                                                 <div className="layoutDefault__header__menu__text">
                                                     Game Du Lịch
                                                 </div>
                                             </a>
-                                            <Link to="/login">
+                                            <Link to="/https://virtual-gallery-main.vercel.app/virtouria/">
                                                 <div className="layoutDefault__header__menu__back">
                                                 </div>
                                                 <div className="layoutDefault__header__menu__text">
-                                                    E-Magazine
+                                                    Sự kiện hot
                                                 </div>
                                             </Link>
                                         </>
