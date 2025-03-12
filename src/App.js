@@ -3,7 +3,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import LayoutDefault from "./Layouts/LayoutDefault";
 import Home from "./Layouts/Home";
 import Game from "./Layouts/Game";
-import DT from "./3D/layout/MinhWorkSpace";
 
 function App() {
 
