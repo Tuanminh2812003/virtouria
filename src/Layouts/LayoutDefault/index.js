@@ -71,14 +71,14 @@ function LayoutDefault(){
                                                     Trang Chủ
                                                 </div>
                                             </a>
-                                            <a href="/">
+                                            <a href="#home__section2">
                                                 <div className="layoutDefault__header__menu__back">
                                                 </div>
                                                 <div className="layoutDefault__header__menu__text">
                                                     Đặt Tours
                                                 </div>
                                             </a>
-                                            <a href="/">
+                                            <a href="#home__section3">
                                                 <div className="layoutDefault__header__menu__back">
                                                 </div>
                                                 <div className="layoutDefault__header__menu__text">
@@ -92,7 +92,7 @@ function LayoutDefault(){
                                                     Game Du Lịch
                                                 </div>
                                             </a>
-                                            <Link to="/https://virtual-gallery-main.vercel.app/virtouria/">
+                                            <Link to="https://virtual-gallery-main.vercel.app/virtouria/">
                                                 <div className="layoutDefault__header__menu__back">
                                                 </div>
                                                 <div className="layoutDefault__header__menu__text">
