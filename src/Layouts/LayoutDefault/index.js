@@ -118,7 +118,11 @@ function LayoutDefault(){
                 phone: event.target.phone.value,
             };
             try {
-                await axios.post("https://chisu3000.online/api/v1/auth/signup", registerData);
+                const res = await axios.post("https://chisu3000.online/api/v1/auth/signup", registerData);
+                if (res.data.code !== 200) {
+                    alert("Đăng ký thất bại: " + res.response?.data?.message || "Lỗi không xác định.");
+                return;
+                }
                 alert("Đăng ký thành công! Hãy đăng nhập.");
                 setShowModalRegister(false);
                 setShowModalLogin(true);
