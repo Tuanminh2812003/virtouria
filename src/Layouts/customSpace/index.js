@@ -91,7 +91,7 @@ function CustomSpace() {
                                         </div>
                                     </div>
                                 </div>
-                                <Link to={`https://virtual-gallery-main.vercel.app/custom/${khongGian.slug}`} className="Space__inner__button">
+                                <Link to={`https://virtual-gallery-main.vercel.app/customspace/${khongGian.slug}`} className="Space__inner__button">
                                     <div className="Space__inner__button__inner">
                                         <div className="Space__inner__button__inner__text">KHÁM PHÁ KHÔNG GIAN</div>
                                         <div className="Space__inner__button__inner__icon">
