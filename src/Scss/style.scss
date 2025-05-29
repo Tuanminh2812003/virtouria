@@ -20,7 +20,7 @@ header{
     display: flex;
     width: 100%;
     position: fixed;
-    top: 62px;
+    top: 16px;
     left: 0;
     z-index: 1000;
 }
@@ -48,6 +48,7 @@ footer{
             justify-content: center;
             position: relative;
             z-index: 1;
+            cursor: pointer;
 
             img{
                 width: 100px;
@@ -55,7 +56,7 @@ footer{
             }
 
             &__text{
-                color: white;
+                color: #3582FF;
                 font-weight: 700;
                 font-size: 20px;
             }
@@ -70,8 +71,13 @@ footer{
 
             &__inner{
                 display: flex;
-                border: 2px white solid;
+                border: 2px #3582FF solid;
                 border-radius: 100px;
+
+                .active{
+                    background-color: #3582FF;
+                    color: white;
+                }
             }
 
             a{
@@ -84,12 +90,12 @@ footer{
                 overflow: hidden;
 
                 &:hover > .layoutDefault__header__menu__back{
-                    background-color: white;
+                    background-color: #3582FF;
                     opacity: 1;
                     transition: all 0.1s ease-in;
                 }
                 &:hover > .layoutDefault__header__menu__text{
-                    color: black;
+                    color: white;
                     transition: all 0.1s ease-in;
                 }
             }
@@ -122,15 +128,15 @@ footer{
             justify-content: center;
             border-radius: 100px;
             padding: 12px;
-            border: 2px white solid;
+            border: 2px #3582FF solid;
             border-radius: 100px;
             margin-right: 16px;
             background-color: transparent;
-            color: white;
+            color: #3582FF;
 
             &:hover{
                 background-color: white;
-                color: $Color-title;
+                color: #3582FF;
             }
 
             &__text{
@@ -150,6 +156,7 @@ footer{
             background-color: #3582FF;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
 
             &__text{
                 color: white;
@@ -180,7 +187,7 @@ footer{
         width: 100%;
         margin-top: 24px;
         position: relative;
-        background-image: url('../../public/back1.png');
+        background-image: url('../../public/back.jpeg');
         background-size: cover;
         position: relative;
         background-position: center;
@@ -383,13 +390,27 @@ footer{
     &__section1{
         display: flex;
         width: 100%;
-        background-image: url('../../public/back1.png');
+        background: url('../../public/back.jpeg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         position: relative;
         background-attachment: fixed;
         flex-direction: column;
+
+        &__video{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+
+            video{
+                width: 100%;
+                object-fit: cover;
+            }
+        }
 
         &__background{
             position: absolute;
@@ -543,6 +564,32 @@ footer{
             &__disc{
                 font-size: 18px;
                 color: $Color-text;
+                text-align: center;
+                width: 50%;
+            }
+        }
+    }
+
+    &__section3{
+        display: flex;
+        margin-top: 56px;
+
+        &__inner{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+
+            &__title{
+                font-size: 40px;
+                font-weight: 600;
+                color: #5D5D5D;
+                text-align: center;
+            }
+            &__disc{
+                font-size: 18px;
+                color: #5D5D5D;
                 text-align: center;
                 width: 50%;
             }

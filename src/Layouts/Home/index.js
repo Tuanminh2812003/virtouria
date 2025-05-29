@@ -8,35 +8,35 @@ import { FaStar } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { IoChatbubbleOutline } from "react-icons/io5";
 import FestivalCard from "../../Components/FestivalCard";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, Suspense } from "react";
 import { LanguageContext } from "../../context/LanguageContext";
+import festivals from "../../constants/data";
+import ModelCanvas from "../../Components/ModelCanvas/modelCanvas";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
+
+import "./Home.scss";
 
 function Home() {
 
     const { language, changeLanguage } = useContext(LanguageContext);
 
-    const festivalsVN = [
-        { image: "/Tour/t1.png", title: "Làng Hương Quảng Phú Cầu, Việt Nam", description: "Nơi lưu giữ nghệ thuật làm hương truyền thống hàng trăm năm, không chỉ mang hương thơm đặc trưng mà còn tạo nên những khung cảnh rực rỡ đầy màu sắc..." },
-        { image: "/Tour/t2.png", title: "Làng Gốm Bát Tràng, Việt Nam", description: "Một làng nghề truyền thống hơn 700 năm, nổi tiếng với các sản phẩm gốm tinh xảo, bền đẹp.", tall: true },
-        { image: "/Tour/t3.png", title: "Lễ Hội Khinh Khí Cầu, Đài Loan", description: "Hàng trăm khinh khí cầu bay lơ lửng trên bầu trời tạo nên cảnh tượng tuyệt đẹp." },
-        { image: "/Tour/t4.png", title: "Lễ Hội Đua Voi, Việt Nam", description: "Sự kiện truyền thống của người M’Nông, tôn vinh sức mạnh của voi Tây Nguyên.", tall: true },
-        { image: "/Tour/t5.png", title: "Lễ Hội Hóa Trang, Đức", description: "Lễ hội hóa trang lớn nhất Châu Âu với những bộ trang phục kỳ lạ và vui nhộn.", tall: true },
-        { image: "/Tour/t7.png", title: "Lễ Hội Đua Vịt Cao Su, Đức", description: "Hàng ngàn con vịt cao su được thả xuống dòng sông trong cuộc đua vui nhộn.", tall: true },
-        { image: "/Tour/t6.png", title: "Lễ Hội Thả Đèn Trời, Đài Loan", description: "Một lễ hội truyền thống hàng trăm năm tại làng Thập Phần." },
-        { image: "/Tour/t8.png", title: "Lễ Hội Bia Munich, Đức", description: "Sự kiện bia lớn nhất thế giới với hơn 6 triệu người tham gia mỗi năm." }
-    ];
+    const [selectedIndex, setSelectedIndex] = useState(1);
+    const selectedFestival = festivals[selectedIndex];
 
-    const festivalsEN = [
-        { image: "/Tour/t1.png", title: "Quang Phu Cau Incense Village, Vietnam", description: "A place that preserves the centuries-old art of making incense, not only carrying its distinctive fragrance but also creating vibrant and colorful scenes." },
-        { image: "/Tour/t2.png", title: "Bat Trang Pottery Village, Vietnam", description: "A traditional craft village with over 700 years of history, famous for its exquisite and durable ceramic products.", tall: true },
-        { image: "/Tour/t3.png", title: "Hot Air Balloon Festival, Taiwan", description: "Hundreds of hot air balloons floating in the sky create a breathtaking spectacle." },
-        { image: "/Tour/t4.png", title: "Elephant Racing Festival, Vietnam", description: "A traditional event of the M’Nong people, honoring the strength of Central Highland elephants.", tall: true },
-        { image: "/Tour/t5.png", title: "Carnival Festival, Germany", description: "The largest carnival in Europe, featuring unique and fun costumes.", tall: true },
-        { image: "/Tour/t7.png", title: "Rubber Duck Race Festival, Germany", description: "Thousands of rubber ducks are released into the river in a fun-filled race.", tall: true },
-        { image: "/Tour/t6.png", title: "Sky Lantern Festival, Taiwan", description: "A centuries-old traditional festival in Shifen Village, where thousands of lanterns light up the night sky." },
-        { image: "/Tour/t8.png", title: "Munich Beer Festival, Germany", description: "The world's largest beer festival, attracting over 6 million participants each year." }
-    ];
+    const handlePrev = () => {
+        setSelectedIndex((prev) => (prev - 1 + festivals.length) % festivals.length);
+    };
 
+        const handleNext = () => {
+        setSelectedIndex((prev) => (prev + 1) % festivals.length);
+    };
+
+    const visibleThumbnails = [
+    festivals[(selectedIndex - 1 + festivals.length) % festivals.length],
+    festivals[selectedIndex],
+    festivals[(selectedIndex + 1) % festivals.length],
+    ];
     return (
         <>
             <div className="home">
@@ -72,7 +72,7 @@ function Home() {
                                         <GoArrowUpLeft />
                                         </div>
                                         <div className="home__section1__inner__button__inner__text">
-                                            {language === "EN" ? "Play 3D Game" : "Trải Nghiệm 3D"}
+                                            {language === "EN" ? "Virtual Explore" : "Trải Nghiệm ảo"}
                                         </div>
                                     </a>
                                     <a href="/">
@@ -116,18 +116,114 @@ function Home() {
                                 {language === "EN" ? "Immerse yourself in the vibrant atmosphere and experience unique festivals that showcase the rich local culture at every destination you visit!" : "Hòa mình vào không khí sôi động để trải nghiệm những lễ hội độc nhất vô nhị mang đậm bản sắc địa phương tại từng nơi bạn ghé qua!"}
                             </div>
                             <div className="festival-grid">
-                                {language === "EN"
-                                    ? festivalsEN.map((festival, index) => (
-                                        <FestivalCard key={index} {...festival} />
-                                    ))
-                                    : festivalsVN.map((festival, index) => (
-                                        <FestivalCard key={index} {...festival} />
-                                    ))
-                                }
+                                {festivals.map((festival, index) => (
+                                    <FestivalCard
+                                        key={index}
+                                        image={festival.image}
+                                        tall={festival.tall}
+                                        title={language === "EN" ? festival.titleEN : festival.titleVN}
+                                        description={language === "EN" ? festival.descriptionEN : festival.descriptionVN}
+                                    />
+                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
+                <div className="home__section3">
+                    <div className="container-main">
+                        <div className="home__section3__inner">
+                        <div className="home__section3__inner__title">
+                            {language === "EN" ? "UNIQUE CULTURAL PRODUCTS" : "SẢN PHẨM VĂN HÓA ĐẶC TRƯNG"}
+                        </div>
+                        <div className="home__section3__inner__disc">
+                            {language === "EN"
+                            ? "Join a simulation game to create cultural products from local festivals and gain a deeper understanding of your destination!"
+                            : "Tham gia trò chơi mô phỏng để tạo ra các sản phẩm văn hóa từ các lễ hội địa phương và hiểu sâu hơn về điểm đến của bạn!"}
+                        </div>
+                        <div className="home__section3__inner__content">
+                            <div className="home__section3__inner__content__view">
+                            {/* Canvas with styled border */}
+                            <div
+                                style={{
+                                borderRadius: "16px",
+                                overflow: "hidden",
+                                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+                                border: "1px solid #ccc",
+                                width: "80%",
+                                height: "60vh",
+                                position: "relative",
+                                marginTop: "32px",
+                                }}
+                            >
+                                <ModelCanvas style={{ width: "20vw", height: "100%" }} modelUrl={selectedFestival.model} />
+
+                                <div className="home__section3__inner__content__view__text">
+                                    <div className="home__section3__inner__content__view__text__title">
+                                        {language === "EN" ? selectedFestival.titleEN : selectedFestival.titleVN}
+                                    </div>
+                                    <div className="home__section3__inner__content__view__text__disc">
+                                        {language === "EN" ? selectedFestival.descriptionEN : selectedFestival.descriptionVN}
+                                    </div>
+                                </div>
+                                <div className="home__section3__inner__content__view__button">
+                                    <div className="home__section3__inner__content__view__button__left">
+                                        <a href={selectedFestival.Web} target="_blank" rel="noopener noreferrer">
+                                            <div className="home__section3__inner__content__slide__view__right__button1__text">
+                                                {language === "EN" ? "Booking Now" : "Đặt tour ngay"}
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div className="home__section3__inner__content__view__button__right">
+                                        <a href={selectedFestival.Web} target="_blank" rel="noopener noreferrer">
+                                            <div className="home__section3__inner__content__slide__view__right__button1__text">
+                                                {language === "EN" ? "Virtual Explore" : "Trải nghiệm ảo"}
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            {/* Thumbnail slider */}
+                            <div className="home__section3__inner__content__slide d-flex align-items-center gap-2 mt-3">
+                            <button
+                                onClick={handlePrev}
+                            >
+                                <IoIosArrowBack />
+                            </button>
+
+                            {visibleThumbnails.map((festival, i) => {
+                                const realIndex = (selectedIndex - 1 + i + festivals.length) % festivals.length;
+                                return (
+                                    <div
+                                    key={realIndex}
+                                    className={`home__section3__inner__content__slide__item ${realIndex === selectedIndex ? "active" : ""}`}
+                                    onClick={() => setSelectedIndex(realIndex)}
+                                    style={{
+                                        backgroundImage: `url(${festival.imageModel})`,
+                                        backgroundSize: "cover",
+                                        borderRadius: 16,
+                                        cursor: "pointer",
+                                        filter: realIndex === selectedIndex ? "none" : "grayscale(100%)",
+                                        border: realIndex === selectedIndex ? "2px solid #3498db" : "2px solid transparent",
+                                        transform: realIndex === selectedIndex ? "scale(1.05)" : "scale(1)",
+                                        transition: "all 0.3s ease",
+                                    }}
+                                    />
+                                );
+                            })}
+
+                            <button
+                                onClick={handleNext}
+                            >
+                                <IoIosArrowForward />
+                            </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="home__section4">
                     <div className="container-main">
                         <div className="home__section4__inner">

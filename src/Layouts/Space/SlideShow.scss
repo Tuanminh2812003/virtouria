@@ -1,0 +1,107 @@
+.slide-container {
+    padding: 0px 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 56px;
+
+    &__title{
+        font-size: 40px;
+        font-weight: 600;
+        text-align: center;
+        width: 100%;
+        color: #5D5D5D;
+    }
+
+}
+
+.slide-item {
+    padding: 16px;
+    display: flex !important;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+
+    &__img {
+        width: 100%;
+        height: 200px;
+        background-position: center;
+        background-size: cover;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+
+    &__title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-top: 12px;
+        color: #5D5D5D;
+    }
+    &__point {
+        font-size: 16px;
+        color: #3582FF;
+    }
+    &__price {
+        font-size: 16px;
+        color: #F96D01;
+        font-weight: 500;
+    }
+}
+
+/* Custom nút prev & next */
+.slick-prev::before,
+.slick-next::before {
+  display: none !important;
+  content: "" !important;
+}
+.slick-prev, .slick-next {
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  background-color: #3582FF;
+  border-radius: 50%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.slick-prev {
+  left: 80px; // đẩy ra ngoài 1 chút
+}
+
+.slick-next {
+  right: 80px;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    color: #3582FF;
+}
+
+/* Tùy chỉnh dots (chấm tròn điều hướng) */
+.slick-dots {
+    
+    
+    li {
+
+        button::before {
+            color: #5D5D5D; /* Màu trắng mặc định */
+            opacity: 1;
+            transition: color 0.3s ease-in-out;
+        }
+
+        &.slick-active button::before {
+            color: #0088ff; /* Màu xanh khi được chọn */
+            font-size: 12px;
+        }
+    }
+}

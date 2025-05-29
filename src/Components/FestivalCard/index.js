@@ -23,7 +23,7 @@ const FestivalCard = ({ image, title, description, tall }) => {
       <div className="festival-buttons">
         <div className="festival-buttons__back"></div>
         <Link to="/game" className="btn-3d">
-          {language === "EN" ? "Virtual explore" : "Trải nghiệm 3D"}
+          {language === "EN" ? "Virtual explore" : "Trải nghiệm ảo"}
         </Link>
         <div className="btn-tour">
           {language === "EN" ? "Book tour" : "Đặt Tour"}

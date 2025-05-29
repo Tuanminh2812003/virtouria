@@ -1,4 +1,4 @@
-$Color-title: #2E2E2E;
+$Color-title: #3582FF;
 $Color-text: #515151;
 
 .backModal{
@@ -51,6 +51,105 @@ $Color-text: #515151;
         margin: 24px 0px;
     }
 }
+
+.modalRegister{
+    &__title{
+        font-size: 24px;
+        font-weight: 600;
+        color: $Color-title;
+        margin-bottom: 24px;
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
+
+        input{
+            height: 48px;
+            width: 100%;
+            border-radius: 100px;
+            padding: 12px 24px;
+            border: $Color-text 1px solid;
+        }
+
+        &__button{
+                width: 100%;
+                height: 48px;
+                border-radius: 100px;
+                background-color: $Color-title;
+                color: white;
+                font-weight: 600;
+                cursor: pointer;
+                border: none;
+                transition: background-color 0.3s ease;
+
+                &:hover{
+                    background-color: darken($Color-title, 10%);
+                }
+            }
+
+    }
+
+    &__space{
+            width: 100%;
+            height: 48px;
+            border-radius: 100px;
+            background-color: $Color-title;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+
+            &:hover{
+                background-color: darken($Color-title, 10%);
+            }
+    }
+
+    &__logOut{
+            width: 100%;
+            height: 48px;
+            border-radius: 100px;
+            background-color: #FF4D4D;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover{
+                background-color: darken(#FF4D4D, 10%);
+            }
+        }
+
+    &__have{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+    &__login{
+        color: $Color-title;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: underline;
+
+        &:hover{
+            color: darken($Color-title, 10%);
+        }
+    }
+
+}
+
 
 @keyframes slideIn {
     from {

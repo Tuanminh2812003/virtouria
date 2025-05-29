@@ -1,0 +1,119 @@
+.home__section3__inner{
+    width: 100%;
+
+    
+}
+
+.home__section3__inner__content__view{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home__section3__inner__content__view__text{
+    width: 30%;
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    z-index: 2;
+
+    &__title{
+        font-size: 32px;
+        font-weight: 700;
+        color: #3582FF;
+    }
+    &__disc{
+        font-size: 20px;
+        margin-top: 8px;
+        color: #3582FF;
+    }
+}
+.home__section3__inner__content__view__button{
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    z-index: 2;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+
+    &__left{
+        display: flex;
+
+        a{
+            text-decoration: none;
+            color: #3582FF;
+            font-weight: 600;
+            padding: 10px 8px;
+            border-radius: 16px;
+            background-color: white;
+            border: 2px solid #3582FF;
+            cursor: pointer;
+            font-size: 24px;
+
+            &:hover{
+                background-color: #3582FF;
+                color: white;
+            }
+        }
+        
+    }
+    &__right{
+        display: flex;
+        margin-left: 12px;
+
+        a{
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            padding: 10px 8px;
+            border-radius: 16px;
+            background-color: #3582FF;
+            border: 2px solid #3582FF;
+            cursor: pointer;
+            font-size: 24px;
+
+            &:hover{
+                background-color: white;
+                color: #3582FF;
+            }
+        }
+        
+    }
+
+}
+
+.home__section3__inner__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.home__section3__inner__content__slide{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+
+    &__item{
+        width: 25%;
+        height: 20vh;
+    }
+
+    button{
+        background-color: transparent;
+        border: none;
+        font-size: 50px;
+        font-weight: 400;
+        color: #3582FF;
+        opacity: 0.5;
+
+        &:hover{
+            opacity: 1;
+        }
+    }
+}
