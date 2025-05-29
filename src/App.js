@@ -7,6 +7,7 @@ import ListSpace from "./Layouts/ListSpace";
 import ScrollToTop from "./action/ScrollToTop";
 import Space from "./Layouts/Space";
 import CustomSpace from "./Layouts/customSpace";
+import HotEvents from "./Layouts/HotEvents";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/listspace" element={<ListSpace />} />
           <Route path="/space/:prop" element={<Space />} />
           <Route path="/customSpace/:prop" element={<CustomSpace />} />
+          <Route path="/hotevents" element={<HotEvents />} />
         </Route>
       </Routes>
     </>

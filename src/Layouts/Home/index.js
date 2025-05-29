@@ -14,6 +14,7 @@ import festivals from "../../constants/data";
 import ModelCanvas from "../../Components/ModelCanvas/modelCanvas";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 import "./Home.scss";
 
@@ -41,6 +42,11 @@ function Home() {
         <>
             <div className="home">
                 <div className="home__section1">
+                    <div className="home__section1__video">
+                        <video autoPlay loop muted className="home__section1__video__content">
+                            <source src="/path/to/video.mp4" type="video/mp4" />
+                        </video>
+                    </div>
                     <div className="home__section1__background">
                     </div>
                     <div className="container-main">
@@ -123,6 +129,8 @@ function Home() {
                                         tall={festival.tall}
                                         title={language === "EN" ? festival.titleEN : festival.titleVN}
                                         description={language === "EN" ? festival.descriptionEN : festival.descriptionVN}
+                                        web={festival.Web}
+                                        webVR={festival.WebVR}
                                     />
                                 ))}
                             </div>
@@ -167,18 +175,18 @@ function Home() {
                                 </div>
                                 <div className="home__section3__inner__content__view__button">
                                     <div className="home__section3__inner__content__view__button__left">
-                                        <a href={selectedFestival.Web} target="_blank" rel="noopener noreferrer">
+                                        <Link to={selectedFestival.Web} rel="noopener noreferrer">
                                             <div className="home__section3__inner__content__slide__view__right__button1__text">
                                                 {language === "EN" ? "Booking Now" : "Đặt tour ngay"}
                                             </div>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="home__section3__inner__content__view__button__right">
-                                        <a href={selectedFestival.Web} target="_blank" rel="noopener noreferrer">
+                                        <Link to ={selectedFestival.WebVR} rel="noopener noreferrer">
                                             <div className="home__section3__inner__content__slide__view__right__button1__text">
                                                 {language === "EN" ? "Virtual Explore" : "Trải nghiệm ảo"}
                                             </div>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

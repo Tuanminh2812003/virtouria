@@ -4,7 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import { LanguageContext } from "../../context/LanguageContext";
 import { Link, NavLink, Outlet } from "react-router-dom";
 
-const FestivalCard = ({ image, title, description, tall }) => {
+const FestivalCard = ({ image, title, description, tall, web, webVR }) => {
 
   const { language, changeLanguage } = useContext(LanguageContext);
 
@@ -22,12 +22,12 @@ const FestivalCard = ({ image, title, description, tall }) => {
       </div>
       <div className="festival-buttons">
         <div className="festival-buttons__back"></div>
-        <Link to="/game" className="btn-3d">
+        <Link to={webVR} className="btn-3d">
           {language === "EN" ? "Virtual explore" : "Trải nghiệm ảo"}
         </Link>
-        <div className="btn-tour">
+        <Link to={web} className="btn-tour">
           {language === "EN" ? "Book tour" : "Đặt Tour"}
-        </div>
+        </Link>
       </div>
     </div>
   );

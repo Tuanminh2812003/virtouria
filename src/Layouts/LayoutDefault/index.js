@@ -207,7 +207,7 @@ function LayoutDefault(){
                                                     Travel Game
                                                 </div>
                                             </NavLink>
-                                            <NavLink to="https://virtual-gallery-main.vercel.app/virtouria/" className={({ isActive }) => isActive ? "active" : ""}>
+                                            <NavLink to="/hotevents" className={({ isActive }) => isActive ? "active" : ""}>
                                                 <div className="layoutDefault__header__menu__back">
                                                 </div>
                                                 <div className="layoutDefault__header__menu__text">
@@ -238,7 +238,7 @@ function LayoutDefault(){
                                                     Trò chơi du lịch
                                                 </div>
                                             </NavLink>
-                                            <NavLink to="https://virtual-gallery-main.vercel.app/virtouria/" className={({ isActive }) => isActive ? "active" : ""}>
+                                            <NavLink to="/hotevents" className={({ isActive }) => isActive ? "active" : ""}>
                                                 <div className="layoutDefault__header__menu__back">
                                                 </div>
                                                 <div className="layoutDefault__header__menu__text">
