@@ -480,7 +480,10 @@ function LayoutDefault(){
                 <div className="modalRegister__title">
                     {userData.username || "User"}
                 </div>
-                <Link to={webSpace} className="modalRegister__space" onClick={handleCreateSpace} >
+                {/* <Link to={webSpace} className="modalRegister__space" onClick={handleCreateSpace} >
+                    Không gian của tôi
+                </Link> */}
+                <Link to={"http://localhost:5173"} className="modalRegister__space">
                     Không gian của tôi
                 </Link>
                 <div className="modalRegister__logOut" onClick={handleLogout} relative="blank">
